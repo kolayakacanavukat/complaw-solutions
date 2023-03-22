@@ -5,7 +5,7 @@
   </head>
   <body>
     <h1>M&A Notification Obligation Checker</h1>
-    <form id="notification-form">
+    <form>
       <label for="total-turnover">Total Turkey turnovers of transaction parties:</label>
       <input type="number" id="total-turnover" name="total-turnover" required><br>
       <label for="party-1-turnover">Turkey turnover of party 1:</label>
@@ -20,50 +20,5 @@
       <input type="checkbox" id="is-tech-undertaking" name="is-tech-undertaking"><br>
       <button type="submit">Check Obligation</button>
     </form>
-    <hr>
-    <h2>Feedback Form</h2>
-    <form id="feedback-form">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required><br>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required><br>
-      <label for="feedback">Feedback:</label>
-      <textarea id="feedback" name="feedback" required></textarea><br>
-      <button type="submit">Submit Feedback</button>
-    </form>
-    
-    <script>
-      // Submit notification form data to Google Sheet
-      const notificationForm = document.getElementById('notification-form');
-      notificationForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const formData = new FormData(notificationForm);
-        const url = 'https://script.google.com/macros/s/<YOUR_SCRIPT_ID>/exec'; // Replace with your script URL
-        fetch(url, {
-          method: 'POST',
-          body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-          alert(data.message);
-          notificationForm.reset();
-        })
-        .catch(error => console.error(error));
-      });
-      
-      // Submit feedback form data to Google Sheet
-      const feedbackForm = document.getElementById('feedback-form');
-      feedbackForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const formData = new FormData(feedbackForm);
-        const url = 'https://script.google.com/macros/s/<YOUR_SCRIPT_ID>/exec'; // Replace with your script URL
-        fetch(url, {
-          method: 'POST',
-          body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-          alert(data.message);
-          feedbackForm.reset();
-        })
-        .catch(error => console.error
+  </body>
+</html>
